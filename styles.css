@@ -1455,6 +1455,7 @@ textarea.input { min-height: 100px; resize: vertical; }
 }
 /* Long bullets in VIP need to wrap cleanly */
 .tier-list li { text-wrap: pretty; word-break: normal; overflow-wrap: anywhere; }
+.tier > .btn { margin-top: auto; }
 
 
 /* ─── Brand logo in nav & footer ───────────────────────────── */
