@@ -1325,6 +1325,7 @@ textarea.input { min-height: 100px; resize: vertical; }
 /* ─── Tickets: 4-tier responsive grid ──────────────────────── */
 .tickets.tickets-4 {
   grid-template-columns: repeat(4, 1fr);
+  align-items: start;
 }
 @media (max-width: 1100px) {
   .tickets.tickets-4 { grid-template-columns: repeat(2, 1fr); }
