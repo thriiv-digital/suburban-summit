@@ -112,8 +112,8 @@ function Hero({ onTickets }) {
       <div className="hero-strip">
         <div className="marquee" aria-hidden="true">
           <span>
-            Backing business <span className="sep">●</span> Driving success <span className="sep">●</span> Big ideas, suburban venues <span className="sep">●</span> No buzzword bingo <span className="sep">●</span> Northern Beaches · Illawarra · Hornsby · Central Coast <span className="sep">●</span>
-            Backing business <span className="sep">●</span> Driving success <span className="sep">●</span> Big ideas, suburban venues <span className="sep">●</span> No buzzword bingo <span className="sep">●</span> Northern Beaches · Illawarra · Hornsby · Central Coast <span className="sep">●</span>
+            Backing business <span className="sep">●</span> Driving success <span className="sep">●</span> Big ideas, suburban venues <span className="sep">●</span> Meaningful networking <span className="sep">●</span> Northern Beaches · Illawarra · Hornsby · Central Coast <span className="sep">●</span>
+            Backing business <span className="sep">●</span> Driving success <span className="sep">●</span> Big ideas, suburban venues <span className="sep">●</span> Meaningful networking <span className="sep">●</span> Northern Beaches · Illawarra · Hornsby · Central Coast <span className="sep">●</span>
           </span>
         </div>
       </div>
