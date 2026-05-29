@@ -149,7 +149,7 @@ function About() {
               <li><span className="dot"></span>A focus on how suburban businesses power Australia's economy and communities</li>
             </ul>
             <div className="about-stats">
-              <div className="stat-cell"><div className="stat-v">500+</div><div className="stat-l">Attendees / day</div></div>
+              <div className="stat-cell"><div className="stat-v">400+</div><div className="stat-l">Attendees / day</div></div>
               <div className="stat-cell"><div className="stat-v">50</div><div className="stat-l">Exhibitors</div></div>
               <div className="stat-cell"><div className="stat-v">20</div><div className="stat-l">Speakers</div></div>
               <div className="stat-cell"><div className="stat-v">4</div><div className="stat-l">NSW locations</div></div>
@@ -583,15 +583,6 @@ function Sponsor() {
                   <ul className="sponsor-pack-list">
                     {p.includes.map(x => <li key={x}>{x}</li>)}
                   </ul>
-                  <a
-                    href={HUMANITIX_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-sm"
-                    style={{justifyContent:"center", marginTop:4, background:"var(--paper)", color:"var(--ink)", borderColor:"var(--paper)"}}
-                  >
-                    Book on Humanitix <span className="btn-arrow"></span>
-                  </a>
                 </div>
               ))}
             </div>
@@ -605,7 +596,7 @@ function Sponsor() {
             ) : (
               <>
                 <p style={{margin:"0 0 18px", fontSize:14, opacity:0.78, lineHeight:1.5, textWrap:"pretty"}}>
-                  Prefer a chat before you commit? Send a note and we'll come back within two business days. If you're ready to go, the Humanitix link on each package gets you straight to checkout.
+                  Prefer a chat before you commit? Send a note and we'll come back within two business days.
                 </p>
                 <div className="field-row">
                   <div className="field"><label>Company</label><input className="input" placeholder="Your business name" required/></div>
@@ -643,8 +634,8 @@ function NewsletterFooter() {
   const [signed, setSigned] = useStateS(false);
   return (
     <footer className="foot" style={{background:"var(--bg)"}}>
+      <div className="divider-mono foot-divider-full" style={{marginBottom:48}}>Stay close to the Summit</div>
       <div style={{maxWidth:"var(--max)", margin:"0 auto", padding:"0 0 80px"}}>
-        <div className="divider-mono" style={{marginBottom:48}}>Stay close to the Summit</div>
         <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:"clamp(24px, 4vw, 80px)", alignItems:"end"}}>
           <h2 className="display" style={{fontSize:"clamp(40px, 5vw, 72px)", margin:0}}>
             One email,<br/>once a month,<br/>nothing else.

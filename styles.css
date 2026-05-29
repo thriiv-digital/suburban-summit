@@ -1055,6 +1055,10 @@ textarea.input { min-height: 100px; resize: vertical; }
 .foot {
   padding: 80px var(--gutter) 32px;
 }
+.foot-divider-full {
+  margin-left: calc(-1 * var(--gutter));
+  margin-right: calc(-1 * var(--gutter));
+}
 .foot-top {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1fr;
