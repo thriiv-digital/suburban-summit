@@ -528,7 +528,7 @@ function FAQ() {
   return (
     <section className="section" id="faq" style={{background:"var(--bg-2)"}}>
       <div className="container">
-        <div style={{display:"grid", gridTemplateColumns:"1fr 1.6fr", gap:"clamp(32px, 5vw, 80px)", alignItems:"start"}}>
+        <div className="faq-layout">
           <Reveal as="div">
             <span className="eyebrow">09 — Common questions</span>
             <h2 className="display" style={{fontSize:"clamp(36px, 4.4vw, 60px)", marginTop:16}}>If you're<br/>wondering,<br/>so is everyone.</h2>
