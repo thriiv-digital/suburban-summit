@@ -115,11 +115,11 @@ function Nav({ onTicketsClick }) {
       </a>
       <nav className="nav-links">
         <a href="#about">About</a>
-        <a href="#features">Show</a>
+        <a href="#framework">The Model</a>
         <a href="#locations">Locations</a>
         <a href="#speakers">Speakers</a>
         <a href="#schedule">Schedule</a>
-        <a href="#sponsors">Sponsor</a>
+        <a href="#charity">Community</a>
         <a href="#tickets">Tickets</a>
       </nav>
       <div className="nav-actions">

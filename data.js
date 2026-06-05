@@ -226,6 +226,25 @@ window.SUB = (function () {
       popular: true
     },
     {
+      id: "vip",
+      name: "VIP Experience",
+      price: 330,
+      tag: "Limited",
+      tagline: "Front-row access, the after-party and a voice in what comes next.",
+      vip: true,
+      includes: [
+        "Reserved premium seating",
+        "Full after-party access",
+        "1× cocktail at the after-function",
+        "Commemorative tote bag — event legacy partners",
+        "Stakeholder & support event access",
+        "Exclusive networking opportunities",
+        "Voice on the 2027 program",
+        "VIP at Post Review day"
+      ],
+      excludes: []
+    },
+    {
       id: "student",
       name: "Student / Youth",
       price: 49.50,
@@ -235,23 +254,6 @@ window.SUB = (function () {
         "Full-day Summit access",
         "Tea, coffee & morning tea",
         "Access to all sessions"
-      ],
-      excludes: []
-    },
-    {
-      id: "vip",
-      name: "VIP Experience",
-      price: 330,
-      tag: "Limited",
-      tagline: "Front-row access and the after-glow.",
-      includes: [
-        "$100 ticket value included",
-        "1× cocktail at the after-function",
-        "Tote bag with company give-aways",
-        "Premium seating",
-        "Voice on the 2027 program",
-        "VIP at Post Review day",
-        "Seat in vehicle with our artists"
       ],
       excludes: []
     }
@@ -371,5 +373,60 @@ window.SUB = (function () {
     { q: "Are sessions recorded?", a: "Main stage keynotes only, released to ticket holders 4 weeks after the event. Masterclasses and panels are intentionally not recorded to keep the conversation honest." }
   ];
 
-  return { locations, features, speakers, schedule, tiers, sponsorPackages, exhibitors, trustedSupporters, testimonials, gallery, faqs, images };
+  const founders = [
+    { name: "Luke Griffin",  role: "Co-Founder" },
+    { name: "Andrew",        role: "Co-Founder" },
+    { name: "Isuru",         role: "Co-Founder" },
+    { name: "Alex Quinn",    role: "Co-Founder" },
+    { name: "Libby Salmon",  role: "Co-Founder" }
+  ];
+
+  const framework = [
+    { icon: "build", title: "Local government venue",   line: "Every event is held in a community-owned space — accessible, familiar and embedded in the suburb it serves." },
+    { icon: "mic",   title: "35+ local voices",         line: "Speakers, panellists and contributors come from the region. Real people with real context, not imported keynotes." },
+    { icon: "grid",  title: "Five themed panels",       line: "The same five-panel structure runs at every SUB — consistent, deliberate, designed to cover every dimension of local business." },
+    { icon: "spot",  title: "Charity on stage",         line: "Local charities aren't just guests — they have a voice on stage and a share of the raffle proceeds." },
+    { icon: "tool",  title: "Local businesses first",   line: "Exhibitors, caterers and suppliers are drawn from the host region wherever possible." },
+    { icon: "watch", title: "Genuine networking",       line: "Built into the program — before the first session, through lunch and well into the after-function." },
+    { icon: "arrow", title: "Replicable by design",     line: "The model is built to scale. Every location runs the same framework, adapted to its community." }
+  ];
+
+  const panels = [
+    { num: "01", title: "Past · Present · Future",  sub: null,                                                              line: "A regional lens on where the area has been, where it stands today, and where business is heading." },
+    { num: "02", title: "Outsource",                sub: "Getting Grey but Remaining Relevant",                             line: "How to scale through smart collaboration — without growing your headcount." },
+    { num: "03", title: "Charity Panel",             sub: null,                                                              line: "Local causes, community impact and the role business plays in giving back." },
+    { num: "04", title: "Regional Spotlight",        sub: null,                                                              line: "Celebrating the businesses, projects and people defining the host region." },
+    { num: "05", title: "Business Allies",           sub: "Local Government · Chambers · Service NSW · Community Leaders",  line: "The ecosystem that backs local business — and how to work with it." }
+  ];
+
+  const journey = [
+    { step: "Pre-Event",       line: "Community promotion, stakeholder briefings and early-bird momentum building." },
+    { step: "Promotion Day",   line: "Awareness events in the community to prime the audience before the main event." },
+    { step: "Stakeholder Day", line: "Dedicated sessions for local government, charities and key partners ahead of the summit." },
+    { step: "Pre Day",         line: "Final preparation and arrival for exhibitors, speakers and partners." },
+    { step: "Hero Day",        line: "The main event — panels, keynotes, expo floor, networking and the after-function." },
+    { step: "Post-Event",      line: "Review, reconnect and carry forward the relationships and momentum." }
+  ];
+
+  const charities = [
+    "Hornsby Connect", "Central Coast Women's Shelter", "The Bikers Hand",
+    "Ronald McDonald House", "Mongrels Men", "Headspace",
+    "For the Love of Dogs Academy", "MoWaNa"
+  ];
+
+  const difference = [
+    { num: "01", title: "Community over conference",   line: "SUB is built around the people who actually run the area — not polished keynotes flown in for the day." },
+    { num: "02", title: "Surprise activations",        line: "Events like Paris Major and Roundabout Circus keep the energy alive and make the day genuinely memorable." },
+    { num: "03", title: "Intentional disruption",      line: "We're respectful of traditional business events — and deliberately different where it matters most." },
+    { num: "04", title: "Relationships that last",     line: "The conversations that start on the floor and carry through to the after-function are the entire point." }
+  ];
+
+  const futureRegions = [
+    { city: "Canberra",    region: "ACT",           note: "2027" },
+    { city: "Geelong",     region: "VIC",           note: "2027" },
+    { city: "Ryde",        region: "Sydney, NSW",   note: "2027" },
+    { city: "Parramatta",  region: "Sydney, NSW",   note: "2027" }
+  ];
+
+  return { locations, features, speakers, schedule, tiers, sponsorPackages, exhibitors, trustedSupporters, testimonials, gallery, faqs, images, founders, framework, panels, journey, charities, difference, futureRegions };
 })();

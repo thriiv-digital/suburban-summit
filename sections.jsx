@@ -251,6 +251,18 @@ function Locations() {
             </div>
           </div>
         </div>
+        <Reveal className="loc-expansion">
+          <div className="eyebrow" style={{marginTop:56, marginBottom:20}}>Expanding to</div>
+          <div className="loc-future-grid">
+            {SUB.futureRegions.map(r => (
+              <div key={r.city} className="loc-future-card">
+                <div className="loc-future-city">{r.city}</div>
+                <div className="loc-future-region">{r.region}</div>
+                <div className="loc-future-note">{r.note}</div>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -470,7 +482,7 @@ function Tickets() {
         </Reveal>
         <div className="tickets tickets-4">
           {SUB.tiers.map(t => (
-            <Reveal key={t.id} className={`tier ${t.popular ? "popular" : ""}`}>
+            <Reveal key={t.id} className={`tier ${t.popular ? "popular" : ""} ${t.vip ? "vip" : ""}`}>
               <div className={t.popular ? "tier-tag" : "tier-eyebrow"}>{t.tag}</div>
               <h3 className="tier-name">{t.name}</h3>
               <p style={{margin:0, fontSize:14, opacity:0.78, lineHeight:1.4, textWrap:"pretty"}}>{t.tagline}</p>
@@ -701,4 +713,221 @@ function NewsletterFooter() {
   );
 }
 
-window.SubSections = { Hero, About, Features, Locations, Speakers, Schedule, Supporters, Testimonials, Exhibitors, Tickets, Gallery, FAQ, Sponsor, NewsletterFooter };
+/* ── FOUNDERS ───────────────────────────────────────────────── */
+function Founders() {
+  return (
+    <section className="section section-tight founders-section" id="founders" style={{background:"var(--bg-2)"}}>
+      <div className="container">
+        <div className="founders-grid">
+          <Reveal as="div">
+            <span className="eyebrow">Where it started</span>
+            <h2 className="display" style={{fontSize:"clamp(36px, 4.6vw, 64px)", marginTop:16}}>
+              Built from lived<br/>experience.
+            </h2>
+            <p style={{fontSize:17, color:"var(--ink-2)", lineHeight:1.6, maxWidth:"52ch", margin:"20px 0 0", textWrap:"pretty"}}>
+              SUB began with five business leaders who wanted to create something different — because exchanging business cards alone was no longer enough. What started through Linked Local North Shore in August 2025 has evolved into a regional business movement with events spanning NSW, and expansion into the ACT and Victoria planned for 2027.
+            </p>
+            <a href="#" className="btn btn-ghost" style={{marginTop:28}}>Read the full story <span className="btn-arrow"></span></a>
+          </Reveal>
+          <Reveal delay={100} as="div">
+            <div className="eyebrow" style={{marginBottom:4}}>The five founding voices</div>
+            <div className="founders-list">
+              {SUB.founders.map((f, i) => (
+                <div key={f.name} className="founder-card">
+                  <div className="founder-num">{String(i+1).padStart(2,"0")}</div>
+                  <div>
+                    <div className="founder-name">{f.name}</div>
+                    <div className="founder-role">{f.role}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="founder-note">Five founding voices · Five panels · Every event.</div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── FRAMEWORK ──────────────────────────────────────────────── */
+function Framework() {
+  const { Icon } = window.SubParts;
+  return (
+    <section className="section" id="framework">
+      <div className="container">
+        <Reveal as="div" className="section-head">
+          <span className="eyebrow">The SUB model</span>
+          <h2 className="display">A replicable blueprint<br/>for every community.</h2>
+          <p className="lede">Every SUB event runs the same framework — adapted to its region, consistent in its intent. 128 LGAs by year 15, across NSW, ACT and Victoria.</p>
+        </Reveal>
+        <div className="framework-grid">
+          {SUB.framework.map((f, i) => (
+            <Reveal key={f.title} delay={i * 60} className="framework-item">
+              <div className="framework-icon"><Icon name={f.icon} size={20}/></div>
+              <h4 className="framework-title">{f.title}</h4>
+              <p className="framework-line">{f.line}</p>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal>
+          <div className="framework-footer">
+            <span className="small">The model is already working — Hornsby, Central Coast, Northern Beaches, Illawarra. Next: Canberra, Geelong, Ryde, Parramatta.</span>
+            <a href="#locations" className="btn btn-ghost btn-sm">See all locations <span className="btn-arrow"></span></a>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* ── PANELS ─────────────────────────────────────────────────── */
+function Panels() {
+  return (
+    <section className="section section-tight" id="panels" style={{background:"var(--bg-2)"}}>
+      <div className="container">
+        <Reveal as="div" className="section-head">
+          <span className="eyebrow">The five panels</span>
+          <h2 className="display">The same five conversations.<br/>Every region. Every time.</h2>
+          <p className="lede">The panel structure is one of the defining features of SUB — consistent enough to be a brand, flexible enough to reflect the host community.</p>
+        </Reveal>
+        <div className="panels-grid">
+          {SUB.panels.map((p, i) => (
+            <Reveal key={p.num} delay={i * 70} className="panel-card">
+              <div className="panel-num">{p.num}</div>
+              <h4 className="panel-title">{p.title}</h4>
+              {p.sub && <div className="panel-sub">{p.sub}</div>}
+              <p className="panel-line">{p.line}</p>
+            </Reveal>
+          ))}
+        </div>
+        <div className="row" style={{justifyContent:"center", marginTop:32}}>
+          <a href="#schedule" className="btn btn-ghost">See the Northern Beaches program <span className="btn-arrow"></span></a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── JOURNEY ────────────────────────────────────────────────── */
+function Journey() {
+  return (
+    <section className="section" id="journey">
+      <div className="container">
+        <Reveal as="div" className="section-head">
+          <span className="eyebrow">More than one day</span>
+          <h2 className="display">The full SUB experience<br/>starts well before event day.</h2>
+          <p className="lede">Most people see the Hero Day. The work — and the relationships — run much deeper than that.</p>
+        </Reveal>
+        <div className="journey-track">
+          {SUB.journey.map((j, i) => (
+            <Reveal key={j.step} delay={i * 80} className="journey-step">
+              <div className="journey-num">{String(i+1).padStart(2,"0")}</div>
+              <div className="journey-label">{j.step}</div>
+              <p className="journey-desc">{j.line}</p>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── CHARITY IMPACT ─────────────────────────────────────────── */
+function CharityImpact() {
+  return (
+    <section className="section" id="charity" style={{background:"var(--bg-2)"}}>
+      <div className="container">
+        <div className="charity-grid">
+          <Reveal as="div">
+            <span className="eyebrow">Community at the core</span>
+            <h2 className="display" style={{fontSize:"clamp(36px, 4.6vw, 64px)", marginTop:16}}>
+              Local charities aren't<br/>guests. They have a voice.
+            </h2>
+            <p style={{fontSize:17, color:"var(--ink-2)", lineHeight:1.6, maxWidth:"52ch", margin:"20px 0 0", textWrap:"pretty"}}>
+              Every SUB event includes a charity on the main stage, a raffle with proceeds directed to a local cause, and a Foundation Stone — a permanent acknowledgement of the organisations that make the community work. The relationship continues well beyond event day.
+            </p>
+            <a href="#" className="btn btn-ghost" style={{marginTop:28}}>See our community impact <span className="btn-arrow"></span></a>
+          </Reveal>
+          <Reveal delay={100} as="div">
+            <div className="eyebrow" style={{marginBottom:20}}>Past charity partners</div>
+            <div className="charity-list">
+              {SUB.charities.map(c => (
+                <div key={c} className="charity-pill">{c}</div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── SUB DIFFERENCE ─────────────────────────────────────────── */
+function SubDifference() {
+  return (
+    <section className="section" id="difference">
+      <div className="container">
+        <Reveal as="div" className="section-head">
+          <span className="eyebrow">The SUB difference</span>
+          <h2 className="display">Respectful of tradition.<br/>Disruptive where it counts.</h2>
+          <p className="lede">We didn't set out to reinvent the business event. We set out to make one worth turning up to.</p>
+        </Reveal>
+        <div className="difference-grid">
+          {SUB.difference.map((d, i) => (
+            <Reveal key={d.num} delay={i * 70} className="difference-card">
+              <div className="difference-num">{d.num}</div>
+              <h4 className="difference-title">{d.title}</h4>
+              <p className="difference-line">{d.line}</p>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── AFTER PARTY ────────────────────────────────────────────── */
+function AfterParty() {
+  return (
+    <section className="section after-party-section" id="after-party">
+      <div className="container">
+        <div className="after-party-inner">
+          <Reveal as="div">
+            <span className="eyebrow after-party-eyebrow">The night continues</span>
+            <h2 className="display" style={{fontSize:"clamp(36px, 4.6vw, 64px)", marginTop:16}}>
+              The best conversations<br/>happen after the<br/><span className="accent it">final panel.</span>
+            </h2>
+            <p style={{fontSize:17, lineHeight:1.6, maxWidth:"52ch", margin:"20px 0 28px", textWrap:"pretty", color:"var(--ink-2)"}}>
+              The after-function is a deliberate part of the SUB model — not a bolt-on. Whether it's a community venue, a local bar or a premium networking space, the relationships built after dark are what people remember most. SUB VIP includes full after-party access.
+            </p>
+            <div className="row" style={{gap:12, flexWrap:"wrap"}}>
+              <a href="#tickets" className="btn btn-primary">Get VIP access <span className="btn-arrow"></span></a>
+              <a href="#schedule" className="btn btn-ghost">See the program <span className="btn-arrow"></span></a>
+            </div>
+          </Reveal>
+          <Reveal delay={100} as="div" className="after-party-stats">
+            <div className="after-party-stat">
+              <div className="after-party-stat-v">4:30pm</div>
+              <div className="after-party-stat-l">After-function kicks off</div>
+            </div>
+            <div className="after-party-stat">
+              <div className="after-party-stat-v">7:00pm</div>
+              <div className="after-party-stat-l">Doors close</div>
+            </div>
+            <div className="after-party-stat">
+              <div className="after-party-stat-v">Local</div>
+              <div className="after-party-stat-l">Venue every time</div>
+            </div>
+            <div className="after-party-stat">
+              <div className="after-party-stat-v">VIP</div>
+              <div className="after-party-stat-l">Included in VIP ticket</div>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+window.SubSections = { Hero, About, Features, Locations, Speakers, Schedule, Supporters, Testimonials, Exhibitors, Tickets, Gallery, FAQ, Sponsor, NewsletterFooter, Founders, Framework, Panels, Journey, CharityImpact, SubDifference, AfterParty };

@@ -1,6 +1,6 @@
 // app.jsx — Sub Summit main app, theme switcher, tweaks
 const { Nav, SpeakerModal } = window.SubParts;
-const { Hero, About, Features, Locations, Speakers, Schedule, Supporters, Testimonials, Exhibitors, Tickets, Gallery, FAQ, Sponsor, NewsletterFooter } = window.SubSections;
+const { Hero, About, Features, Locations, Speakers, Schedule, Supporters, Testimonials, Exhibitors, Tickets, Gallery, FAQ, Sponsor, NewsletterFooter, Founders, Framework, Panels, Journey, CharityImpact, SubDifference, AfterParty } = window.SubSections;
 
 const SUB_TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "direction": "mono",
@@ -65,14 +65,21 @@ function App() {
       <Nav onTicketsClick={goToHumanitix} />
       <Hero onTickets={goToHumanitix} />
       <About />
+      <Founders />
+      <Framework />
+      <Panels />
+      <Journey />
       <Features />
       <Locations />
+      <SubDifference />
       <Speakers onOpen={setOpenSpeaker} />
       <Schedule />
+      <CharityImpact />
+      <AfterParty />
+      <Tickets />
       <Supporters onTickets={goToHumanitix} />
       <Testimonials />
       <Exhibitors />
-      <Tickets />
       <Gallery />
       <FAQ />
       <Sponsor />
