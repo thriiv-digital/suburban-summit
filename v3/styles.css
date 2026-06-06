@@ -1749,9 +1749,9 @@ textarea.input { min-height: 100px; resize: vertical; }
 
 /* When scrolled past hero: revert to theme bg (same as existing .is-scrolled) */
 .nav-dark-hero.is-scrolled {
-  background: color-mix(in oklab, var(--bg) 92%, transparent);
-  -webkit-backdrop-filter: blur(14px) saturate(160%);
-  backdrop-filter: blur(14px) saturate(160%);
+  background: #ffffff;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
   border-bottom-color: var(--line);
 }
 

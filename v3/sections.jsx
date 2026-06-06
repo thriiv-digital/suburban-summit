@@ -88,7 +88,6 @@ function Hero({ onTickets }) {
       {/* Text — single column, left side */}
       <div className="hero-grid hero-grid-dark">
         <div className="hero-text">
-          <div className="hero-tag"><span className="dot"></span>2026 SEASON · NSW · 4 LOCATIONS</div>
           <h1 className="display hero-title">
             Backing<br/>
             business.<br/>
