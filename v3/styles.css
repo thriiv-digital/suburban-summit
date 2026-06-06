@@ -1669,10 +1669,11 @@ textarea.input { min-height: 100px; resize: vertical; }
   pointer-events: none;
 }
 
-/* Hero text — single column, left side, above gradient */
+/* Hero text — single column, left-anchored, above gradient */
 .hero-grid-dark {
   grid-template-columns: 1fr;
   max-width: 760px;
+  margin: 0;           /* override the 0 auto centering from .hero-grid */
   position: relative;
   z-index: 2;
 }
@@ -1776,9 +1777,15 @@ textarea.input { min-height: 100px; resize: vertical; }
   color: #fff;
 }
 
-/* Logo swap: white logo on dark nav, colour logo when scrolled */
+/* Logo swap: inverted (white) logo on dark nav, colour logo when scrolled */
+/* NOTE: when the actual white-text file is placed at
+   images/logo-suburban-business-summit-light.png,
+   remove the filter rule below and both logos will use real files */
 .nav-logo-on-light { display: none; }
-.nav-dark-hero.is-scrolled .nav-logo-on-dark  { display: none; }
+.nav-dark-hero:not(.is-scrolled) .nav-logo-on-dark {
+  filter: brightness(0) invert(1);   /* make logo white on dark nav */
+}
+.nav-dark-hero.is-scrolled .nav-logo-on-dark  { display: none; filter: none; }
 .nav-dark-hero.is-scrolled .nav-logo-on-light { display: block; }
 
 /* ─── V3 Mobile ─────────────────────────────────────────────── */
