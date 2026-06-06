@@ -112,7 +112,7 @@ function Nav({ onTicketsClick }) {
     <header className={`nav nav-dark-hero ${scrolled ? "is-scrolled" : ""}`}>
       <a href="#top" className="nav-logo">
         {/* White-text logo — shown on dark (unscrolled) nav */}
-        <img src="images/logo-suburban-business-summit-light.png" alt="Suburban Business Summit" className="nav-logo-img nav-logo-on-dark" />
+        <img src="images/logo-suburban-business-summit-dk.png" alt="Suburban Business Summit" className="nav-logo-img nav-logo-on-dark" />
         {/* Full-colour logo — shown on light (scrolled) nav */}
         <img src="images/logo-suburban-business-summit.png" alt="Suburban Business Summit" className="nav-logo-img nav-logo-on-light" />
       </a>
