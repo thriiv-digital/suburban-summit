@@ -1979,6 +1979,7 @@ textarea.input { min-height: 100px; resize: vertical; }
 .founders-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-top: 48px; }
 .founder-card-v2 { display: flex; flex-direction: column; gap: 6px; }
 .founder-card-v2-img { width: 100%; aspect-ratio: 1/1; border-radius: var(--radius-lg); overflow: hidden; background: var(--bg); margin-bottom: 10px; border: 1px solid var(--line); }
+.founder-card-v2-img img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
 .founder-card-v2-name { font-weight: 700; font-size: 15px; color: var(--ink); line-height: 1.2; }
 .founder-card-v2-biz { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--accent); margin-bottom: 2px; }
 .founder-card-v2-blurb { font-size: 13px; color: var(--ink-2); line-height: 1.6; margin: 0; flex: 1; }

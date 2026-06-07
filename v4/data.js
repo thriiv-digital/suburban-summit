@@ -381,7 +381,7 @@ window.SUB = (function () {
       business: "Suburban Business Summit",
       blurb: "Corporate Matchmaker with two decades in sales, events and business development. Luke co-founded SUB to bring his relationship-building philosophy to scale — connecting local business owners, one suburb at a time.",
       linkedin: "https://www.linkedin.com/in/luke-griffin-30b1553b/",
-      img: null
+      img: "../images/founder-luke-griffin.jpg"
     },
     {
       name: "Andrew Third",
@@ -389,7 +389,7 @@ window.SUB = (function () {
       business: "andrewthird.com",
       blurb: "Leadership and business coach helping people step into their next level. Andrew brings deep community roots and a belief that the right connections accelerate everything.",
       linkedin: "https://www.linkedin.com/in/andrew-third/",
-      img: null
+      img: "../images/founder-andrew-third.jpg"
     },
     {
       name: "Isuru de Silva",
@@ -397,7 +397,7 @@ window.SUB = (function () {
       business: "OZ Media Digital",
       blurb: "Senior digital marketing strategist with 15+ years growing local and SME businesses through paid media, SEO and integrated campaigns. Isuru ensures SUB reaches the owners who need it most.",
       linkedin: "https://www.linkedin.com/in/isurudesilva/",
-      img: null
+      img: "../images/founder-isuru-de-silva.jpg"
     },
     {
       name: "Alex Quinn",
@@ -413,7 +413,7 @@ window.SUB = (function () {
       business: "Bio Circuitry",
       blurb: "Nutritional coach and founder of Bio Circuitry. Libby helps Australians access proven natural wellness solutions — and brings the same community-first values to every SUB event.",
       linkedin: "https://www.linkedin.com/in/libby-salmon/",
-      img: null
+      img: "../images/founder-libby-salmon.jpg"
     }
   ];
 
