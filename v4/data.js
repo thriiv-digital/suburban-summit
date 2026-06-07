@@ -379,6 +379,7 @@ window.SUB = (function () {
       name: "Luke Griffin",
       role: "Co-Founder",
       business: "Suburban Business Summit",
+      website: "growthcds.com.au",
       blurb: "Corporate Matchmaker with two decades in sales, events and business development. Luke co-founded SUB to bring his relationship-building philosophy to scale — connecting local business owners, one suburb at a time.",
       linkedin: "https://www.linkedin.com/in/luke-griffin-30b1553b/",
       img: "../images/founder-luke-griffin.jpg"
@@ -387,14 +388,16 @@ window.SUB = (function () {
       name: "Andrew Third",
       role: "Co-Founder",
       business: "andrewthird.com",
+      website: "andrewthird.com",
       blurb: "Leadership and business coach helping people step into their next level. Andrew brings deep community roots and a belief that the right connections accelerate everything.",
       linkedin: "https://www.linkedin.com/in/andrew-third/",
-      img: "../images/founder-andrew-third.jpg"
+      img: "../founder-andrew-third2.jpg"
     },
     {
       name: "Isuru de Silva",
       role: "Co-Founder",
       business: "OZ Media Digital",
+      website: "ozmedia.digital",
       blurb: "Senior digital marketing strategist with 15+ years growing local and SME businesses through paid media, SEO and integrated campaigns. Isuru ensures SUB reaches the owners who need it most.",
       linkedin: "https://www.linkedin.com/in/isurudesilva/",
       img: "../images/founder-isuru-de-silva.jpg"
@@ -403,6 +406,7 @@ window.SUB = (function () {
       name: "Alex Quinn",
       role: "Co-Founder",
       business: "— coming soon —",
+      website: null,
       blurb: "Co-founder of the Suburban Business Summit with a passion for connecting local businesses and building communities that back each other.",
       linkedin: "#",
       img: null
@@ -411,6 +415,7 @@ window.SUB = (function () {
       name: "Libby Salmon",
       role: "Co-Founder",
       business: "Bio Circuitry",
+      website: "biocircuitry.com.au",
       blurb: "Nutritional coach and founder of Bio Circuitry. Libby helps Australians access proven natural wellness solutions — and brings the same community-first values to every SUB event.",
       linkedin: "https://www.linkedin.com/in/libby-salmon/",
       img: "../images/founder-libby-salmon.jpg"

@@ -737,9 +737,14 @@ function Founders() {
               <div className="founder-card-v2-name">{f.name}</div>
               <div className="founder-card-v2-biz">{f.business}</div>
               <p className="founder-card-v2-blurb">{f.blurb}</p>
-              {f.linkedin && f.linkedin !== "#" && (
-                <a href={f.linkedin} target="_blank" rel="noopener noreferrer" className="founder-li-link">LinkedIn ↗</a>
-              )}
+              <div className="founder-card-v2-links">
+                {f.website && (
+                  <a href={`https://${f.website}`} target="_blank" rel="noopener noreferrer" className="founder-web-link">{f.website} ↗</a>
+                )}
+                {f.linkedin && f.linkedin !== "#" && (
+                  <a href={f.linkedin} target="_blank" rel="noopener noreferrer" className="founder-li-link">LinkedIn ↗</a>
+                )}
+              </div>
             </Reveal>
           ))}
         </div>
