@@ -102,8 +102,8 @@ function Hero({ onTickets }) {
           </div>
           <Countdown
             target={new Date("2026-06-30T08:30:00+10:00").getTime()}
-            eventName="Northern Beaches"
-            dateLabel="30 Jun 2026 · Warriewood"
+            eventName="Next event: Northern Beaches"
+            dateLabel="30 Jun · Warriewood"
           />
         </div>
       </div>
@@ -728,14 +728,23 @@ function Founders() {
             <a href="#" className="btn btn-ghost" style={{marginTop:28}}>Read the full story <span className="btn-arrow"></span></a>
           </Reveal>
           <Reveal delay={100} as="div">
-            <div className="eyebrow" style={{marginBottom:4}}>The five founding voices</div>
-            <div className="founders-list">
+            <div className="eyebrow" style={{marginBottom:24}}>The five founding voices</div>
+            <div className="founders-profile-grid">
               {SUB.founders.map((f, i) => (
-                <div key={f.name} className="founder-card">
-                  <div className="founder-num">{String(i+1).padStart(2,"0")}</div>
-                  <div>
+                <div key={f.name} className="founder-profile-card">
+                  <div className="founder-profile-img">
+                    {f.img
+                      ? <img src={f.img} alt={f.name} style={{width:"100%",height:"100%",objectFit:"cover"}} />
+                      : <Photo glyph="person" label={f.name} style={{width:"100%",height:"100%",objectFit:"cover"}} />
+                    }
+                  </div>
+                  <div className="founder-profile-body">
                     <div className="founder-name">{f.name}</div>
-                    <div className="founder-role">{f.role}</div>
+                    <div className="founder-biz">{f.business}</div>
+                    <p className="founder-blurb">{f.blurb}</p>
+                    {f.linkedin && f.linkedin !== "#" && (
+                      <a href={f.linkedin} target="_blank" rel="noopener noreferrer" className="founder-li-link">LinkedIn ↗</a>
+                    )}
                   </div>
                 </div>
               ))}
@@ -968,7 +977,6 @@ function AboutSnippet() {
 /* ── V4: EventSpotlight ──────────────────────────────────────── */
 function EventSpotlight() {
   const loc = SUB.locations[0];
-  const pct = Math.round((loc.sold / loc.capacity) * 100);
   return (
     <section className="section spotlight-section" id="next-event">
       <div className="container">
@@ -979,11 +987,13 @@ function EventSpotlight() {
             <p className="lede" style={{marginBottom:24}}>{loc.blurb}</p>
             <div className="spotlight-facts">
               <div className="spotlight-fact"><Icon name="cal" size={16}/>{loc.date}</div>
-              <div className="spotlight-fact"><Icon name="pin" size={16}/>{loc.venue}, {loc.address}</div>
+              <div className="spotlight-fact">
+                <Icon name="pin" size={16}/>
+                <a href="https://thriiv.s.gy/RXWYoe" target="_blank" rel="noopener noreferrer" className="subtle-link">{loc.venue}</a>, {loc.address}
+              </div>
               <div className="spotlight-fact"><Icon name="clock" size={16}/>{loc.hours}</div>
             </div>
-            <div className="spotlight-progress"><div className="spotlight-progress-bar" style={{width:`${pct}%`}}/></div>
-            <div className="small" style={{color:"var(--muted)",marginBottom:28}}>{loc.sold} of {loc.capacity} seats filled</div>
+            <div style={{marginBottom:28}}/>
             <div className="hero-ctas">
               <button onClick={openHumanitix} className="btn btn-primary btn-lg">Book a ticket <span className="btn-arrow"></span></button>
               <a href="events-northern-beaches.html" className="btn btn-ghost btn-lg">Full program</a>
@@ -1022,6 +1032,9 @@ function ModelTeaser() {
         <div className="model-teaser-grid">
           {pillars.map((p, i) => (
             <Reveal key={p.title} delay={i * 60} className="model-teaser-card">
+              <div className="model-teaser-photo">
+                <Photo glyph={p.icon || "stage"} label={p.title} style={{width:"100%",height:"100%",objectFit:"cover"}} />
+              </div>
               <div className="model-teaser-icon">{p.icon}</div>
               <div className="model-teaser-title">{p.title}</div>
               <div className="model-teaser-line">{p.line}</div>

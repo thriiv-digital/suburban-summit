@@ -1,9 +1,9 @@
-// page-event-nb.jsx — Northern Beaches event page
+// page-event-illawarra.jsx — Illawarra event page
 const { PageNav, PageFooter, PageHero, Reveal, Icon, SpeakerModal } = window.SubParts;
 const { Panels, Speakers, Schedule, Journey, AfterParty, Tickets, FAQ } = window.SubSections;
-const HUMANITIX_URL = "https://events.humanitix.com/suburban-business-summit-northern-beaches/tickets";
+const ILLAWARRA_TICKETS_URL = "https://events.humanitix.com/suburban-business-summit-illawarra/tickets";
 
-// Inline countdown for the event page hero (no shared dependency on sections.jsx Countdown)
+// Countdown for the Illawarra event
 function EventCountdown({ target }) {
   const [now, setNow] = React.useState(Date.now());
   React.useEffect(() => {
@@ -23,9 +23,9 @@ function EventCountdown({ target }) {
         <span className="dot"/>
         <span>{live ? "Doors open in" : "Doors are open"}</span>
         <span className="sep">·</span>
-        <span>Northern Beaches</span>
+        <span>Illawarra</span>
         <span className="sep">·</span>
-        <span>30 Jun 2026</span>
+        <span>17 Sep 2026</span>
       </div>
       <div className="hero-cd-grid">
         {cells.map(c => (
@@ -39,9 +39,9 @@ function EventCountdown({ target }) {
   );
 }
 
-function EventNBHero() {
-  const loc = SUB.locations[0];
-  const goToHumanitix = () => window.open(HUMANITIX_URL, "_blank", "noopener,noreferrer");
+function EventIllawarraHero() {
+  const loc = SUB.locations.find(l => l.id === "illawarra");
+  const goToTickets = () => window.open(ILLAWARRA_TICKETS_URL, "_blank", "noopener,noreferrer");
   return (
     <section className="page-hero page-hero-event">
       <div className="container">
@@ -50,16 +50,13 @@ function EventNBHero() {
         <p className="page-hero-sub" style={{marginBottom:24}}>{loc.blurb}</p>
         <div className="event-hero-facts">
           <div className="event-hero-fact"><Icon name="cal" size={18}/>{loc.date}</div>
-          <div className="event-hero-fact">
-            <Icon name="pin" size={18}/>
-            <a href="https://thriiv.s.gy/RXWYoe" target="_blank" rel="noopener noreferrer" className="subtle-link subtle-link-light">{loc.venue}</a>
-          </div>
+          <div className="event-hero-fact"><Icon name="pin" size={18}/>{loc.venue}, {loc.address}</div>
           <div className="event-hero-fact"><Icon name="clock" size={18}/>{loc.hours}</div>
         </div>
-        <EventCountdown target={new Date("2026-06-30T08:30:00+10:00").getTime()} />
+        <EventCountdown target={new Date("2026-09-17T08:30:00+10:00").getTime()} />
         <div style={{marginTop:28}}>
-          <button onClick={goToHumanitix} className="btn btn-primary btn-lg">
-            Book a ticket <span className="btn-arrow"></span>
+          <button onClick={goToTickets} className="btn btn-primary btn-lg">
+            Register your interest <span className="btn-arrow"></span>
           </button>
         </div>
       </div>
@@ -67,23 +64,21 @@ function EventNBHero() {
   );
 }
 
-/* Getting here section — map + transport */
-function GettingHere() {
+/* Getting here — Ribbonwood Community Centre, Dapto */
+function GettingHereIllawarra() {
   return (
     <section className="section section-alt getting-here-section" id="getting-here">
       <div className="container">
         <Reveal as="div" className="section-head" style={{textAlign:"left"}}>
           <span className="eyebrow">Getting there</span>
-          <h2 className="display" style={{fontSize:"clamp(32px,4vw,52px)"}}>Warriewood Community Centre</h2>
-          <p className="lede">
-            <a href="https://thriiv.s.gy/RXWYoe" target="_blank" rel="noopener noreferrer" className="text-link">Vuko Place, Warriewood NSW 2102 ↗</a>
-          </p>
+          <h2 className="display" style={{fontSize:"clamp(32px,4vw,52px)"}}>Ribbonwood Community Centre</h2>
+          <p className="lede">Dapto NSW 2530</p>
         </Reveal>
         <div className="getting-here-grid">
           <Reveal className="getting-here-map">
             <iframe
-              title="Warriewood Community Centre map"
-              src="https://www.google.com/maps?q=Warriewood+Community+Centre,+Vuko+Pl,+Warriewood+NSW+2102&output=embed"
+              title="Ribbonwood Community Centre map"
+              src="https://www.google.com/maps?q=Ribbonwood+Community+Centre,+Dapto+NSW+2530&output=embed"
               width="100%"
               height="380"
               style={{border:0,borderRadius:"var(--radius-lg)"}}
@@ -98,28 +93,27 @@ function GettingHere() {
                 <div className="transport-icon">🚗</div>
                 <div>
                   <div className="transport-head">By car</div>
-                  <div className="transport-body">Free on-site parking is available. Enter via Vuko Place, Warriewood. GPS: Warriewood Community Centre, Warriewood NSW 2102.</div>
-                </div>
-              </div>
-              <div className="transport-item">
-                <div className="transport-icon">🚌</div>
-                <div>
-                  <div className="transport-head">By bus</div>
-                  <div className="transport-body">Route 155 and 136 stop near Warriewood Square (approx. 5 min walk). Check <a href="https://transportnsw.info" target="_blank" rel="noopener noreferrer" className="text-link">transportnsw.info</a> for current timetables.</div>
+                  <div className="transport-body">Free on-site parking available. Dapto is located off the Princes Motorway (M1), approximately 20 minutes south of Wollongong CBD. GPS: Ribbonwood Community Centre, Dapto NSW 2530.</div>
                 </div>
               </div>
               <div className="transport-item">
                 <div className="transport-icon">🚂</div>
                 <div>
                   <div className="transport-head">By train</div>
-                  <div className="transport-body">No direct rail link to Warriewood. Closest station is Manly Vale (Harbourlink ferry + bus), or take the B-Line bus from Wynyard to Warriewood Square.</div>
+                  <div className="transport-body">Dapto Station is on the South Coast Line. Direct trains from Sydney Central take approximately 90 minutes. From the station it is a short taxi or rideshare to the venue.</div>
+                </div>
+              </div>
+              <div className="transport-item">
+                <div className="transport-icon">🚌</div>
+                <div>
+                  <div className="transport-body">Local bus services connect Dapto to Wollongong. Check <a href="https://transportnsw.info" target="_blank" rel="noopener noreferrer" className="text-link">transportnsw.info</a> for current timetables and routes.</div>
                 </div>
               </div>
               <div className="transport-item">
                 <div className="transport-icon">🚕</div>
                 <div>
                   <div className="transport-head">Rideshare / taxi</div>
-                  <div className="transport-body">Drop-off on Vuko Place. Uber, DiDi and local taxis are available in the area. Allow extra time during morning peak (8–9am).</div>
+                  <div className="transport-body">Uber and local taxis are available in Dapto. Drop-off directly at the Ribbonwood Community Centre. Allow extra time during morning peak.</div>
                 </div>
               </div>
             </div>
@@ -130,7 +124,7 @@ function GettingHere() {
   );
 }
 
-function EventNBPage() {
+function EventIllawarraPage() {
   const [openSpeaker, setOpenSpeaker] = React.useState(null);
   React.useEffect(() => {
     document.documentElement.setAttribute("data-mode", "mono");
@@ -139,13 +133,13 @@ function EventNBPage() {
   return (
     <div>
       <PageNav active="events" />
-      <EventNBHero />
+      <EventIllawarraHero />
       <Panels />
       <Speakers onOpen={setOpenSpeaker} />
       <Schedule />
       <Journey />
       <AfterParty />
-      <GettingHere />
+      <GettingHereIllawarra />
       <Tickets />
       <FAQ />
       <SpeakerModal speaker={openSpeaker} onClose={() => setOpenSpeaker(null)} />
@@ -154,4 +148,4 @@ function EventNBPage() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<EventNBPage />);
+ReactDOM.createRoot(document.getElementById("root")).render(<EventIllawarraPage />);

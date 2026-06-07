@@ -26,33 +26,34 @@ window.SUB = (function () {
       id: "illawarra",
       city: "Illawarra",
       region: "Wollongong, NSW",
-      date: "Wed 06 May 2026",
-      dateShort: "06 May",
-      venue: "WIN Entertainment Centre",
-      address: "Crown St, Wollongong",
+      date: "Thu 17 September 2026",
+      dateShort: "17 Sep",
+      venue: "Ribbonwood Community Centre",
+      address: "Dapto NSW 2530",
       hours: "8:30am – 5:00pm",
-      capacity: 600,
-      sold: 142,
-      tag: "Upcoming 2026",
+      capacity: 480,
+      sold: 0,
+      tag: "Coming Sep 2026",
       headline: "Big ideas meet big industry.",
       blurb: "The Illawarra edition brings the same one-day SUB format south — practical sessions for trades, professional services, hospitality and community leaders, with a regional flavour and local speakers on the program.",
       partners: ["Local partners to be announced"],
-      img: "https://images.unsplash.com/photo-1565552645632-d725f8bfc19a?w=1200&auto=format&fit=crop&q=80"
+      img: "https://images.unsplash.com/photo-1565552645632-d725f8bfc19a?w=1200&auto=format&fit=crop&q=80",
+      imgs: ["https://images.unsplash.com/photo-1565552645632-d725f8bfc19a?w=1200&auto=format&fit=crop&q=80"]
     },
     {
       id: "hornsby",
       city: "Hornsby",
       region: "Sydney, NSW",
-      date: "Tue 18 August 2026",
-      dateShort: "18 Aug",
+      date: "2027 — date TBC",
+      dateShort: "2027",
       venue: "Hornsby RSL Club",
       address: "4 High St, Hornsby",
       hours: "8:30am – 5:00pm",
       capacity: 480,
-      sold: 96,
-      tag: "Returning home · 2026",
+      sold: 0,
+      tag: "2027 season",
       headline: "Back where it all started.",
-      blurb: "Hornsby is where SUB began. We're returning in 2026 with a bigger floor, more local partners and the same practical, no-hype format that filled the room the first time round.",
+      blurb: "Hornsby is where SUB began. We're returning in 2027 with a bigger floor, more local partners and the same practical, no-hype format that filled the room the first time round.",
       partners: ["Local partners to be announced"],
       img: "https://images.unsplash.com/photo-1564503942137-4d22b3a8c39d?w=1200&auto=format&fit=crop&q=80"
     },
@@ -60,16 +61,16 @@ window.SUB = (function () {
       id: "central-coast",
       city: "Central Coast",
       region: "Gosford, NSW",
-      date: "Thu 22 October 2026",
-      dateShort: "22 Oct",
+      date: "2027 — date TBC",
+      dateShort: "2027",
       venue: "Mingara Recreation Club",
       address: "Mingara Dr, Tumbi Umbi",
       hours: "8:30am – 5:00pm",
       capacity: 540,
-      sold: 64,
-      tag: "Recently held",
+      sold: 0,
+      tag: "2027 season",
       headline: "Where we proved the model.",
-      blurb: "Our most recent Summit before the 2026 season. The Coast edition drew owners from trades, hospitality, professional services and community organisations — the same mix that has come to define a SUB day.",
+      blurb: "The Coast edition drew owners from trades, hospitality, professional services and community organisations — the same mix that has come to define a SUB day. We're returning in 2027.",
       partners: ["Past local partners"],
       img: "https://images.unsplash.com/photo-1502209524164-acea936639a2?w=1200&auto=format&fit=crop&q=80"
     }
@@ -374,11 +375,46 @@ window.SUB = (function () {
   ];
 
   const founders = [
-    { name: "Luke Griffin",  role: "Co-Founder" },
-    { name: "Andrew",        role: "Co-Founder" },
-    { name: "Isuru",         role: "Co-Founder" },
-    { name: "Alex Quinn",    role: "Co-Founder" },
-    { name: "Libby Salmon",  role: "Co-Founder" }
+    {
+      name: "Luke Griffin",
+      role: "Co-Founder",
+      business: "— business name —",
+      blurb: "Luke is one of the driving forces behind the Suburban Business Summit. His background in community business networks led to the founding of SUB as a practical, no-hype event series for local operators.",
+      linkedin: "#",
+      img: null
+    },
+    {
+      name: "Andrew",
+      role: "Co-Founder",
+      business: "— business name —",
+      blurb: "Andrew brings deep experience in local business development and community engagement, helping shape the SUB model from the ground up.",
+      linkedin: "#",
+      img: null
+    },
+    {
+      name: "Isuru",
+      role: "Co-Founder",
+      business: "— business name —",
+      blurb: "Isuru's passion for supporting suburban entrepreneurs and building genuine community connections is a cornerstone of the SUB ethos.",
+      linkedin: "#",
+      img: null
+    },
+    {
+      name: "Alex Quinn",
+      role: "Co-Founder",
+      business: "— business name —",
+      blurb: "Alex's experience building and growing local businesses informs the practical, action-first approach SUB takes to every event.",
+      linkedin: "#",
+      img: null
+    },
+    {
+      name: "Libby Salmon",
+      role: "Co-Founder",
+      business: "— business name —",
+      blurb: "Libby brings a strong community and charity lens to SUB, ensuring the organisation's giving model is authentic and impactful.",
+      linkedin: "#",
+      img: null
+    }
   ];
 
   const framework = [

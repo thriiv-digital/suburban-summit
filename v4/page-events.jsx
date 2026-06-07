@@ -1,9 +1,19 @@
 // page-events.jsx — All events listing
-const { PageNav, PageHero, PageFooter, Reveal, Icon } = window.SubParts;
+const { PageNav, PageHero, PageFooter, Reveal, Icon, Photo } = window.SubParts;
 const HUMANITIX_URL = "https://events.humanitix.com/suburban-business-summit-northern-beaches/tickets";
+
+const EVENT_LINKS = {
+  "northern-beaches": "events-northern-beaches.html",
+  "illawarra": "events-illawarra.html"
+};
+
+const VENUE_MAP_LINKS = {
+  "northern-beaches": "https://thriiv.s.gy/RXWYoe"
+};
 
 function EventsListing() {
   const goToHumanitix = () => window.open(HUMANITIX_URL, "_blank", "noopener,noreferrer");
+  const isUpcoming = (loc) => !loc.date.includes("TBC") && !loc.date.includes("2027");
   return (
     <section className="section" id="events">
       <div className="container">
@@ -11,40 +21,52 @@ function EventsListing() {
         <div className="events-list">
           {SUB.locations.map((loc, i) => {
             const isNext = i === 0;
-            const pct = Math.round((loc.sold / loc.capacity) * 100);
+            const is2026 = isUpcoming(loc);
+            const mapLink = VENUE_MAP_LINKS[loc.id];
+            const eventLink = EVENT_LINKS[loc.id];
             return (
-              <Reveal key={loc.id} className={`event-card${isNext ? " event-card-next" : ""}`}>
-                <div className="event-card-header">
-                  <div>
-                    <div className="eyebrow" style={{marginBottom:6}}>{loc.tag}</div>
-                    <h2 className="display event-card-city">{loc.city}</h2>
-                    <div className="small" style={{color:"var(--ink-2)"}}>{loc.region}</div>
-                  </div>
-                  <div className="event-card-date">
-                    <div className="event-card-date-v">{loc.dateShort}</div>
-                    <div className="small" style={{color:"var(--muted)"}}>2026</div>
-                  </div>
+              <Reveal key={loc.id} className={`event-card event-card-with-img${isNext ? " event-card-next" : ""}`}>
+                <div className="event-card-img">
+                  <Photo src={loc.img} alt={`${loc.city} venue`} glyph="venue" style={{width:"100%",height:"100%",objectFit:"cover"}} />
                 </div>
-                <div className="event-card-facts" style={{marginBottom:16}}>
-                  <div className="event-fact"><Icon name="pin" size={15}/>{loc.venue}</div>
-                  <div className="event-fact"><Icon name="clock" size={15}/>{loc.hours}</div>
-                </div>
-                <p style={{color:"var(--ink-2)",margin:"0 0 20px",lineHeight:1.6}}>{loc.blurb}</p>
-                {isNext && (
-                  <div style={{marginBottom:20}}>
-                    <div className="spotlight-progress"><div className="spotlight-progress-bar" style={{width:`${pct}%`}}/></div>
-                    <div className="small" style={{color:"var(--muted)",marginTop:6}}>{loc.sold} of {loc.capacity} seats filled</div>
+                <div className="event-card-content">
+                  <div className="event-card-header">
+                    <div>
+                      <div className="eyebrow" style={{marginBottom:6}}>{loc.tag}</div>
+                      <h2 className="display event-card-city">{loc.city}</h2>
+                      <div className="small" style={{color:"var(--ink-2)"}}>{loc.region}</div>
+                    </div>
+                    <div className="event-card-date">
+                      <div className="event-card-date-v">{loc.dateShort}</div>
+                      <div className="small" style={{color:"var(--muted)"}}>{is2026 ? "2026" : ""}</div>
+                    </div>
                   </div>
-                )}
-                <div className="event-card-foot">
-                  {isNext ? (
-                    <>
-                      <button onClick={goToHumanitix} className="btn btn-primary">Book now <span className="btn-arrow"></span></button>
-                      <a href="events-northern-beaches.html" className="btn btn-ghost">Full program</a>
-                    </>
-                  ) : (
-                    <span className="eyebrow" style={{opacity:0.5}}>Registration opening soon</span>
-                  )}
+                  <div className="event-card-facts" style={{marginBottom:16}}>
+                    <div className="event-fact">
+                      <Icon name="pin" size={15}/>
+                      {mapLink
+                        ? <a href={mapLink} target="_blank" rel="noopener noreferrer" className="subtle-link">{loc.venue}</a>
+                        : loc.venue
+                      }
+                    </div>
+                    <div className="event-fact"><Icon name="cal" size={15}/>{loc.date}</div>
+                  </div>
+                  <p style={{color:"var(--ink-2)",margin:"0 0 20px",lineHeight:1.6}}>{loc.blurb}</p>
+                  <div className="event-card-foot">
+                    {isNext ? (
+                      <>
+                        <button onClick={goToHumanitix} className="btn btn-primary">Book now <span className="btn-arrow"></span></button>
+                        {eventLink && <a href={eventLink} className="btn btn-ghost">Full program</a>}
+                      </>
+                    ) : is2026 ? (
+                      <>
+                        {eventLink && <a href={eventLink} className="btn btn-ghost">Full program</a>}
+                        <span className="eyebrow" style={{opacity:0.5}}>Tickets opening soon</span>
+                      </>
+                    ) : (
+                      <span className="eyebrow" style={{opacity:0.5}}>Coming in 2027 — stay in touch</span>
+                    )}
+                  </div>
                 </div>
               </Reveal>
             );
