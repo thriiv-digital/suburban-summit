@@ -393,7 +393,7 @@ window.SUB = (function () {
       blurb: "Leadership and business coach helping people step into their next level. Andrew brings deep community roots and a belief that the right connections accelerate everything.",
       linkedin: "https://www.linkedin.com/in/andrew-third/",
       img: "../founder-andrew-third2.jpg",
-      imgStyle: { transform: "scale(0.9)", transformOrigin: "center center" }
+      imgStyle: { transform: "scale(1.2)", transformOrigin: "center center" }
     },
     {
       name: "Isuru de Silva",
