@@ -1725,10 +1725,10 @@ textarea.input { min-height: 100px; resize: vertical; }
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 .hero-strip-dark .marquee span {
-  color: rgba(255, 255, 255, 0.38);
+  color: rgba(255, 255, 255, 0.22);
 }
 .hero-strip-dark .sep {
-  color: rgba(255, 255, 255, 0.18) !important;
+  color: rgba(255, 255, 255, 0.1) !important;
 }
 
 /* ─── V3 Nav: dark by default, light on scroll ──────────────── */
