@@ -730,7 +730,7 @@ function Founders() {
             <Reveal key={f.name} delay={i * 60} className="founder-card-v2">
               <div className="founder-card-v2-img">
                 {f.img
-                  ? <img src={f.img} alt={f.name} style={{width:"100%",height:"100%",objectFit:"cover"}} />
+                  ? <img src={f.img} alt={f.name} style={{width:"100%",height:"100%",objectFit:"cover",...(f.imgStyle||{})}} />
                   : <Photo glyph="person" label={f.name} style={{width:"100%",height:"100%"}} />
                 }
               </div>

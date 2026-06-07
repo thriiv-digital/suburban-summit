@@ -382,7 +382,7 @@ window.SUB = (function () {
       website: "growthcds.com.au",
       blurb: "Corporate Matchmaker with two decades in sales, events and business development. Luke co-founded SUB to bring his relationship-building philosophy to scale — connecting local business owners, one suburb at a time.",
       linkedin: "https://www.linkedin.com/in/luke-griffin-30b1553b/",
-      img: "../images/founder-luke-griffin.jpg"
+      img: "../images/founder-luke-griffin2.jpg"
     },
     {
       name: "Andrew Third",
@@ -391,7 +391,8 @@ window.SUB = (function () {
       website: "andrewthird.com",
       blurb: "Leadership and business coach helping people step into their next level. Andrew brings deep community roots and a belief that the right connections accelerate everything.",
       linkedin: "https://www.linkedin.com/in/andrew-third/",
-      img: "../founder-andrew-third2.jpg"
+      img: "../founder-andrew-third2.jpg",
+      imgStyle: { transform: "scale(1.3)", transformOrigin: "top center" }
     },
     {
       name: "Isuru de Silva",
