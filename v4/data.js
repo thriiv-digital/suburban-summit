@@ -378,41 +378,41 @@ window.SUB = (function () {
     {
       name: "Luke Griffin",
       role: "Co-Founder",
-      business: "— business name —",
-      blurb: "Luke is one of the driving forces behind the Suburban Business Summit. His background in community business networks led to the founding of SUB as a practical, no-hype event series for local operators.",
-      linkedin: "#",
+      business: "Suburban Business Summit",
+      blurb: "Corporate Matchmaker with two decades in sales, events and business development. Luke co-founded SUB to bring his relationship-building philosophy to scale — connecting local business owners, one suburb at a time.",
+      linkedin: "https://www.linkedin.com/in/luke-griffin-30b1553b/",
       img: null
     },
     {
-      name: "Andrew",
+      name: "Andrew Third",
       role: "Co-Founder",
-      business: "— business name —",
-      blurb: "Andrew brings deep experience in local business development and community engagement, helping shape the SUB model from the ground up.",
-      linkedin: "#",
+      business: "andrewthird.com",
+      blurb: "Leadership and business coach helping people step into their next level. Andrew brings deep community roots and a belief that the right connections accelerate everything.",
+      linkedin: "https://www.linkedin.com/in/andrew-third/",
       img: null
     },
     {
-      name: "Isuru",
+      name: "Isuru de Silva",
       role: "Co-Founder",
-      business: "— business name —",
-      blurb: "Isuru's passion for supporting suburban entrepreneurs and building genuine community connections is a cornerstone of the SUB ethos.",
-      linkedin: "#",
+      business: "OZ Media Digital",
+      blurb: "Senior digital marketing strategist with 15+ years growing local and SME businesses through paid media, SEO and integrated campaigns. Isuru ensures SUB reaches the owners who need it most.",
+      linkedin: "https://www.linkedin.com/in/isurudesilva/",
       img: null
     },
     {
       name: "Alex Quinn",
       role: "Co-Founder",
-      business: "— business name —",
-      blurb: "Alex's experience building and growing local businesses informs the practical, action-first approach SUB takes to every event.",
+      business: "— coming soon —",
+      blurb: "Co-founder of the Suburban Business Summit with a passion for connecting local businesses and building communities that back each other.",
       linkedin: "#",
       img: null
     },
     {
       name: "Libby Salmon",
       role: "Co-Founder",
-      business: "— business name —",
-      blurb: "Libby brings a strong community and charity lens to SUB, ensuring the organisation's giving model is authentic and impactful.",
-      linkedin: "#",
+      business: "Bio Circuitry",
+      blurb: "Nutritional coach and founder of Bio Circuitry. Libby helps Australians access proven natural wellness solutions — and brings the same community-first values to every SUB event.",
+      linkedin: "https://www.linkedin.com/in/libby-salmon/",
       img: null
     }
   ];

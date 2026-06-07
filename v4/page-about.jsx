@@ -1,6 +1,27 @@
 // page-about.jsx — About the Suburban Business Summit
-const { PageNav, PageHero, PageFooter, Reveal, Icon } = window.SubParts;
+const { PageNav, PageHero, PageFooter, Reveal, Icon, Photo } = window.SubParts;
 const { Founders, Framework, SubDifference } = window.SubSections;
+
+// Custom hero with crowd photo + dark gradient overlay
+function AboutHero() {
+  return (
+    <section className="about-photo-hero">
+      <div className="about-photo-hero-img">
+        <Photo src={SUB.images.hero} alt="Suburban Business Summit crowd" style={{position:"absolute",inset:0,width:"100%",height:"100%"}} imgStyle={{width:"100%",height:"100%",objectFit:"cover"}} />
+      </div>
+      <div className="about-photo-hero-grad" aria-hidden="true" />
+      <div className="container about-photo-hero-body">
+        <div className="eyebrow" style={{color:"rgba(255,255,255,0.5)",marginBottom:12}}>About the summit</div>
+        <h1 className="display" style={{fontSize:"clamp(40px,6vw,80px)",color:"#fff",margin:"0 0 20px",maxWidth:"14ch",lineHeight:1}}>
+          A new kind of local business event.
+        </h1>
+        <p style={{fontSize:"clamp(16px,1.5vw,20px)",color:"rgba(255,255,255,0.65)",maxWidth:"48ch",margin:0,lineHeight:1.55}}>
+          We bring the energy of a big conference to the suburbs — closer to where you work, live, and belong.
+        </p>
+      </div>
+    </section>
+  );
+}
 const HUMANITIX_URL = "https://events.humanitix.com/suburban-business-summit-northern-beaches/tickets";
 
 function AboutMission() {
@@ -99,11 +120,7 @@ function AboutPage() {
   return (
     <div>
       <PageNav active="about" />
-      <PageHero
-        eyebrow="About the summit"
-        title="A new kind of local business event."
-        sub="We bring the energy of a big conference to the suburbs — closer to where you work, live, and belong."
-      />
+      <AboutHero />
       <AboutMission />
       <Founders />
       <Framework />

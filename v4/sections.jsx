@@ -190,9 +190,7 @@ function Features() {
 
 /* ── LOCATIONS ──────────────────────────────────────────── */
 function Locations() {
-  const [active, setActive] = useStateS(SUB.locations[0].id);
-  const loc = SUB.locations.find(l => l.id === active);
-  const pct = Math.round((loc.sold / loc.capacity) * 100);
+  const [next, ...upcoming] = SUB.locations;
   return (
     <section className="section" id="locations">
       <div className="container">
@@ -200,55 +198,57 @@ function Locations() {
           <span className="eyebrow">03 — The 2026 tour</span>
           <h2 className="display">Four locations. One mission.<br/>All within an hour of home.</h2>
         </Reveal>
-        <div className="loc">
-          <div className="loc-tabs">
-            {SUB.locations.map((l, i) => (
-              <button key={l.id} className={`loc-tab ${l.id === active ? "active" : ""}`} onClick={() => setActive(l.id)}>
-                <div className="num">0{i+1}</div>
-                <div>
-                  <div className="city">{l.city}</div>
-                  <div className="date">{l.dateShort.toUpperCase()} · {l.region.toUpperCase()}</div>
-                </div>
-                <div className="chev">→</div>
-              </button>
-            ))}
+
+        {/* Featured: next event — Northern Beaches */}
+        <Reveal className="loc-featured">
+          <div className="loc-featured-img">
+            {next.imgs && next.imgs.length > 1
+              ? <RotatingPhoto imgs={next.imgs} alt={next.venue} className="loc-featured-photo" intervalMs={3000} />
+              : <Photo src={next.img} alt={next.venue} className="loc-featured-photo" />
+            }
           </div>
-          <div className="loc-panel">
-            {loc.imgs && loc.imgs.length > 1
-              ? <RotatingPhoto imgs={loc.imgs} alt={`${loc.venue}, ${loc.city}`} className="loc-photo" intervalMs={3000} key={loc.id}/>
-              : <Photo src={loc.img} alt={`${loc.venue}, ${loc.city}`} className="loc-photo" key={loc.id}/>}
-            <div className="loc-content">
-              <div className="eyebrow">{loc.tag}</div>
-              <h3 className="loc-headline">{loc.headline}</h3>
-              <p style={{fontSize:16, color:"var(--ink-2)", margin:0, lineHeight:1.55, textWrap:"pretty"}}>{loc.blurb}</p>
-              <div className="loc-meta">
-                <div className="loc-meta-cell"><span className="eyebrow">Date</span><div className="v">{loc.date}</div></div>
-                <div className="loc-meta-cell"><span className="eyebrow">Venue</span><div className="v">{loc.venue}</div></div>
-                <div className="loc-meta-cell"><span className="eyebrow">Address</span><div className="v">{loc.address}</div></div>
-                <div className="loc-meta-cell"><span className="eyebrow">Hours</span><div className="v">{loc.hours}</div></div>
+          <div className="loc-featured-body">
+            <span className="eyebrow" style={{marginBottom:12,display:"block"}}>{next.tag}</span>
+            <h3 className="display loc-featured-headline">{next.headline}</h3>
+            <p className="lede" style={{margin:"16px 0 24px",maxWidth:"48ch"}}>{next.blurb}</p>
+            <div className="spotlight-facts" style={{marginBottom:24}}>
+              <div className="spotlight-fact"><Icon name="cal" size={16}/>{next.date}</div>
+              <div className="spotlight-fact">
+                <Icon name="pin" size={16}/>
+                <a href="https://thriiv.s.gy/RXWYoe" target="_blank" rel="noopener noreferrer" className="subtle-link">{next.venue}</a>, {next.address}
               </div>
-              <div>
-                <div className="row" style={{justifyContent:"space-between", marginBottom:8, fontSize:13, color:"var(--ink-2)"}}>
-                  <span style={{fontFamily:"var(--font-mono)", fontSize:11, letterSpacing:".14em", textTransform:"uppercase", color:"var(--muted)"}}>Tickets sold · {pct}%</span>
-                  <span style={{fontFamily:"var(--font-mono)", fontSize:11, letterSpacing:".06em", color:"var(--muted)"}}>{loc.sold} / {loc.capacity}</span>
-                </div>
-                <div className="loc-progress"><div style={{width: `${pct}%`}}/></div>
-              </div>
-              <div className="row" style={{gap:8, flexWrap:"wrap"}}>
-                {loc.id === "northern-beaches"
-                  ? <a href="https://events.humanitix.com/suburban-business-summit-northern-beaches/tickets" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Book Northern Beaches <span className="btn-arrow"></span></a>
-                  : <span className="btn btn-ghost" style={{cursor:"default", pointerEvents:"none", opacity:0.7}}>Tickets coming soon</span>}
-                <a href="#schedule" className="btn btn-ghost">See schedule</a>
-              </div>
-              <div className="row" style={{flexWrap:"wrap", gap:8, marginTop:12}}>
-                <span className="eyebrow">In partnership with</span>
-                <div className="row" style={{flexWrap:"wrap", gap:6}}>
-                  {loc.partners.map(p => <span key={p} style={{fontSize:12, padding:"4px 10px", border:"1px solid var(--line)", borderRadius:"var(--btn-radius)", color:"var(--ink-2)"}}>{p}</span>)}
-                </div>
-              </div>
+              <div className="spotlight-fact"><Icon name="clock" size={16}/>{next.hours}</div>
+            </div>
+            <div className="row" style={{gap:12,flexWrap:"wrap"}}>
+              <a href="https://events.humanitix.com/suburban-business-summit-northern-beaches/tickets" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">
+                Book a ticket <span className="btn-arrow"></span>
+              </a>
+              <a href="events-northern-beaches.html" className="btn btn-ghost btn-lg">Full program</a>
             </div>
           </div>
+        </Reveal>
+
+        {/* Upcoming 3 locations */}
+        <div className="loc-upcoming-grid">
+          {upcoming.map((loc, i) => (
+            <Reveal key={loc.id} delay={i * 60} className="loc-upcoming-card">
+              <div className="loc-upcoming-img">
+                <Photo src={loc.img} alt={loc.city} style={{width:"100%",height:"100%",objectFit:"cover"}} />
+              </div>
+              <div className="loc-upcoming-body">
+                <div className="eyebrow" style={{marginBottom:6}}>{loc.tag}</div>
+                <div className="loc-upcoming-city">{loc.city}</div>
+                <div className="small" style={{color:"var(--ink-2)",margin:"4px 0 4px"}}>{loc.date}</div>
+                <div className="small" style={{color:"var(--muted)",marginBottom:12}}>{loc.venue}, {loc.address}</div>
+                {loc.id === "illawarra"
+                  ? <a href="events-illawarra.html" className="btn btn-ghost btn-sm">Full program</a>
+                  : <span className="eyebrow" style={{opacity:0.45}}>Tickets 2027</span>
+                }
+              </div>
+            </Reveal>
+          ))}
         </div>
+
         <Reveal className="loc-expansion">
           <div className="eyebrow" style={{marginTop:56, marginBottom:20}}>Expanding to</div>
           <div className="loc-future-grid">
@@ -714,44 +714,36 @@ function NewsletterFooter() {
 /* ── FOUNDERS ───────────────────────────────────────────────── */
 function Founders() {
   return (
-    <section className="section section-tight founders-section" id="founders" style={{background:"var(--bg-2)"}}>
+    <section className="section founders-section" id="founders" style={{background:"var(--bg-2)"}}>
       <div className="container">
-        <div className="founders-grid">
-          <Reveal as="div">
-            <span className="eyebrow">Where it started</span>
-            <h2 className="display" style={{fontSize:"clamp(36px, 4.6vw, 64px)", marginTop:16}}>
-              Built from lived<br/>experience.
-            </h2>
-            <p style={{fontSize:17, color:"var(--ink-2)", lineHeight:1.6, maxWidth:"52ch", margin:"20px 0 0", textWrap:"pretty"}}>
-              SUB began with five business leaders who wanted to create something different — because exchanging business cards alone was no longer enough. What started through Linked Local North Shore in August 2025 has evolved into a regional business movement with events spanning NSW, and expansion into the ACT and Victoria planned for 2027.
-            </p>
-            <a href="#" className="btn btn-ghost" style={{marginTop:28}}>Read the full story <span className="btn-arrow"></span></a>
-          </Reveal>
-          <Reveal delay={100} as="div">
-            <div className="eyebrow" style={{marginBottom:24}}>The five founding voices</div>
-            <div className="founders-profile-grid">
-              {SUB.founders.map((f, i) => (
-                <div key={f.name} className="founder-profile-card">
-                  <div className="founder-profile-img">
-                    {f.img
-                      ? <img src={f.img} alt={f.name} style={{width:"100%",height:"100%",objectFit:"cover"}} />
-                      : <Photo glyph="person" label={f.name} style={{width:"100%",height:"100%",objectFit:"cover"}} />
-                    }
-                  </div>
-                  <div className="founder-profile-body">
-                    <div className="founder-name">{f.name}</div>
-                    <div className="founder-biz">{f.business}</div>
-                    <p className="founder-blurb">{f.blurb}</p>
-                    {f.linkedin && f.linkedin !== "#" && (
-                      <a href={f.linkedin} target="_blank" rel="noopener noreferrer" className="founder-li-link">LinkedIn ↗</a>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="founder-note">Five founding voices · Five panels · Every event.</div>
-          </Reveal>
+        <Reveal as="div" className="section-head">
+          <span className="eyebrow">Where it started</span>
+          <h2 className="display" style={{fontSize:"clamp(36px, 4.6vw, 64px)"}}>
+            Built from lived experience.
+          </h2>
+          <p className="lede" style={{maxWidth:"60ch"}}>
+            SUB began with five business leaders who wanted to create something different. What started through Linked Local North Shore in August 2025 has grown into a regional movement spanning NSW — with ACT and Victoria planned for 2027.
+          </p>
+        </Reveal>
+        <div className="founders-row">
+          {SUB.founders.map((f, i) => (
+            <Reveal key={f.name} delay={i * 60} className="founder-card-v2">
+              <div className="founder-card-v2-img">
+                {f.img
+                  ? <img src={f.img} alt={f.name} style={{width:"100%",height:"100%",objectFit:"cover"}} />
+                  : <Photo glyph="person" label={f.name} style={{width:"100%",height:"100%"}} />
+                }
+              </div>
+              <div className="founder-card-v2-name">{f.name}</div>
+              <div className="founder-card-v2-biz">{f.business}</div>
+              <p className="founder-card-v2-blurb">{f.blurb}</p>
+              {f.linkedin && f.linkedin !== "#" && (
+                <a href={f.linkedin} target="_blank" rel="noopener noreferrer" className="founder-li-link">LinkedIn ↗</a>
+              )}
+            </Reveal>
+          ))}
         </div>
+        <div className="founder-note" style={{textAlign:"center",marginTop:36}}>Five founding voices · Five panels · Every event.</div>
       </div>
     </section>
   );
