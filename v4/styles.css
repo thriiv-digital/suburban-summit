@@ -1972,7 +1972,7 @@ textarea.input { min-height: 100px; resize: vertical; }
 .about-photo-hero { position: relative; min-height: 90vh; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; }
 .about-photo-hero-img { position: absolute; inset: 0; }
 .about-photo-hero-grad { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.52) 45%, rgba(0,0,0,0.08) 100%); }
-.about-photo-hero-body { position: relative; z-index: 1; padding: 0 0 clamp(56px,7vw,96px); }
+.about-photo-hero-body { position: relative; z-index: 1; padding-bottom: clamp(56px,7vw,96px); }
 @media (max-width: 640px) { .about-photo-hero { min-height: 70vh; } }
 
 /* ─── Founders row (5 in a row) ──────────────────────────────── */
