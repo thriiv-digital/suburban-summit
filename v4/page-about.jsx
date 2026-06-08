@@ -5,7 +5,7 @@ const { Founders, Framework, SubDifference } = window.SubSections;
 // Custom hero with crowd photo + dark gradient overlay
 function AboutHero() {
   return (
-    <section className="about-photo-hero">
+    <section className="page-hero about-photo-hero">
       <div className="about-photo-hero-img">
         <Photo src={SUB.images.hero} alt="Suburban Business Summit crowd" style={{position:"absolute",inset:0,width:"100%",height:"100%"}} imgStyle={{width:"100%",height:"100%",objectFit:"cover"}} />
       </div>
